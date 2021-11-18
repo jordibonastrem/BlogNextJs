@@ -2,9 +2,13 @@ import axios from "axios";
 import { useState } from "react";
 
 const Posts = () => {
+  const localStorageData = JSON.parse(localStorage.getItem("user"));
   const initialValues = {
     title: "",
     body: "",
+    userName: localStorageData.name,
+    userAvatar: localStorageData.avatar,
+    userId: new Date(),
   };
 
   const [postData, setPostData] = useState(initialValues);

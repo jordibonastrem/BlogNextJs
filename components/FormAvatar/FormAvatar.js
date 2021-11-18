@@ -52,15 +52,7 @@ const FormAvatar = () => {
             placeholder="Enter url of image"
           />
         </div>
-        <a
-          className="avatar avatar-l
-         rounded-circle"
-        >
-          <img
-            alt="Image placeholder"
-            src="https://demos.creative-tim.com/argon-dashboard-pro/assets/img/theme/team-4.jpg"
-          />
-        </a>
+
         <button
           // disabled={buttonDisabled}
           type="submit"
