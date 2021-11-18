@@ -30,14 +30,13 @@ const PostList = ({ posts }) => {
 };
 export default PostList;
 
-export async function getStaticPaths() {
-  const response = await fetch(
-    "https://isdi-blog-posts-api.herokuapp.com/posts"
-  );
-  const posts = await response.json();
-  const paths = posts
-    .slice(0, 10)
-    .map((post) => ({ params: { id: `${post.id}` } }));
+export async function getServerSideProps() {
+  const res = await fetch("https://isdi-blog-posts-api.herokuapp.com/posts");
+  const posts = await res.json();
 
-  return { paths, fallback: true };
+  return {
+    props: {
+      posts,
+    },
+  };
 }
