@@ -1,4 +1,5 @@
 import Link from "next/link";
+
 const Navbar = () => (
   <ul>
     <Link href="/postList" passHref>

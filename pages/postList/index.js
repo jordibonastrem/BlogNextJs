@@ -22,21 +22,37 @@ const PostList = ({ posts }) => {
     );
   };
 
+  const onDelete = () => {
+    const avatar = JSON.parse(localStorage.getItem("Avatar"));
+    if (avatar.hasOwnProperty("userId")) {
+      posts.map((post) => {
+        if (post.id === avatar.id) {
+        }
+      });
+    }
+  };
+
   return (
     <>
       <h1>Post List</h1>
       <ul>
         {/* {isLoading?<h1>Loading..</h1>} */}
         {posts.map((post) => (
-          <Link href={`/postList/${post.id}`} key={post.id} passHref>
-            <li>
-              <h2>{post.title ?? "no title"}</h2>
-              <p>{post.body ?? "No body"}</p>
-              <h3>{post.userName ?? "no username"}</h3>
+          <>
+            <Link href={`/postList/${post.id}`} key={post.id} passHref>
+              <li>
+                <h2>{post.title ?? "no title"}</h2>
+                <p>{post.body ?? "No body"}</p>
+                <h3>{post.userName ?? "no username"}</h3>
 
-              <img src={post.userAvatar} width="100" height="100" alt="" />
-            </li>
-          </Link>
+                <img src={post.userAvatar} width="100" height="100" alt="" />
+              </li>
+            </Link>
+
+            <button type="submit" className="btn btn-primary">
+              Delete
+            </button>
+          </>
         ))}
       </ul>
     </>

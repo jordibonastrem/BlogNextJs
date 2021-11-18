@@ -5,6 +5,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Navbar from "../components/Navbar/Navbar";
 import FormAvatar from "../components/FormAvatar/FormAvatar";
 import { useEffect, useState } from "react";
+import LogoutComponent from "@/components/Logout/Logout";
 // This default export is required in a new `pages/_app.js` file.
 function MyApp({ Component, pageProps }) {
   const [isUserInLocal, setUserLocal] = useState(null);
@@ -22,8 +23,9 @@ function MyApp({ Component, pageProps }) {
     <>
       {isUserInLocal ? (
         <>
+          <LogoutComponent></LogoutComponent>
           <Navbar />
-          <Component {...pageProps} />{" "}
+          <Component {...pageProps} /> <LogoutComponent></LogoutComponent>
         </>
       ) : (
         <FormAvatar />
